@@ -1,1 +1,6 @@
 theme: jekyll-theme-minimal
+title: Multacc
+description: Multacc
+logo: assets/multacc.png
+show_downloads: true
+google_analytics: UA-157362442-1
