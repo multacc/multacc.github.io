@@ -1,0 +1,23 @@
+.container-col {
+    height: calc(100vh - 130px);
+
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+
+    flex-direction: column;
+}
+
+.wide-container {
+    width: 80%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-title {
+    font-family: 'Righteous', cursive;
+
+    color: #444444;
+    border-bottom: solid 1px #444444;
+}
