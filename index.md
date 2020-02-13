@@ -1,3 +1,0 @@
-# Multacc
-
-Multacc is multacc.
