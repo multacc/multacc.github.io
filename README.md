@@ -1,2 +1,2 @@
-# multacc.com
-Multacc website (non-flutter portion)
+# multacc.github.io
+Multacc project website for CS495
