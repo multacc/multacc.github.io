@@ -1,0 +1,53 @@
+body{ margin: 0; }
+body > nav,
+body > div {
+    padding: 25px 10vw;
+}
+
+/* Navigation */
+
+nav {
+    width: 80vw;
+    position: fixed;
+    height: 30px;
+    background-color: transparent;
+    overflow: hidden;
+    border-bottom: 1px solid black;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+#nav-title {
+    height: 100%;
+    font-size: 24px;
+}
+
+#nav-right {
+    height: 100%;
+    width: 200px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    float: right;
+}
+
+/* Layout */
+
+.container {
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Text Styles */
+
+.title {
+    font-size: 40px;
+}
