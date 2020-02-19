@@ -27,6 +27,7 @@ nav a {
     background-image: linear-gradient(to right, white, #E0E0E0);
     color: transparent;
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 #nav-right {
