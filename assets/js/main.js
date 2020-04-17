@@ -1,5 +1,5 @@
 /*
-	Fractal by Pixelarity
+	Threshold by Pixelarity
 	pixelarity.com | hello@pixelarity.com
 	License: pixelarity.com/license
 */
@@ -7,12 +7,10 @@
 (function($) {
 
 	skel.breakpoints({
-		xlarge:		'(max-width: 1680px)',
-		large:		'(max-width: 1280px)',
-		medium:		'(max-width: 980px)',
-		small:		'(max-width: 736px)',
-		xsmall:		'(max-width: 480px)',
-		xxsmall:	'(max-width: 360px)'
+		normal: '(max-width: 1280px)',
+		narrow: '(max-width: 1080px)',
+		narrower: '(max-width: 960px)',
+		mobile: '(max-width: 736px)'
 	});
 
 	$(function() {
@@ -20,91 +18,61 @@
 		var	$window = $(window),
 			$body = $('body');
 
-		// Disable animations/transitions until the page has loaded.
-			$body.addClass('is-loading');
-
-			$window.on('load', function() {
-				window.setTimeout(function() {
-					$body.removeClass('is-loading');
-				}, 100);
-			});
-
-		// Mobile?
-			if (skel.vars.mobile)
-				$body.addClass('is-mobile');
-			else
-				skel
-					.on('-medium !medium', function() {
-						$body.removeClass('is-mobile');
-					})
-					.on('+medium', function() {
-						$body.addClass('is-mobile');
-					});
-
 		// Fix: Placeholder polyfill.
 			$('form').placeholder();
 
-		// Prioritize "important" elements on medium.
-			skel.on('+medium -medium', function() {
+		// Prioritize "important" elements on narrower.
+			skel.on('+narrower -narrower', function() {
 				$.prioritize(
-					'.important\\28 medium\\29',
-					skel.breakpoint('medium').active
+					'.important\\28 narrower\\29',
+					skel.breakpoint('narrower').active
 				);
 			});
 
-		// Scrolly.
-			$('.scrolly')
-				.scrolly({
-					speed: 1500
-				});
+		// Dropdowns.
+			$('#nav > ul').dropotron({
+				offsetY: -15,
+				mode: 'fade',
+				alignment: 'center',
+				noOpenerFade: true
+			});
+
+		// Off-Canvas Navigation.
+
+			// Title Bar.
+				$(
+					'<div id="titleBar">' +
+						'<a href="#navPanel" class="toggle"></a>' +
+					'</div>'
+				)
+					.appendTo($body);
+
+			// Navigation Panel.
+				$(
+					'<div id="navPanel">' +
+						'<nav>' +
+							'<a href="index.html" class="link depth-0">Home</a>' +
+							$('#nav').navList() +
+						'</nav>' +
+					'</div>'
+				)
+					.appendTo($body)
+					.panel({
+						delay: 500,
+						hideOnClick: true,
+						hideOnSwipe: true,
+						resetScroll: true,
+						resetForms: true,
+						side: 'left',
+						target: $body,
+						visibleClass: 'navPanel-visible'
+					});
+
+			// Fix: Remove transitions on WP<10 (poor/buggy performance).
+				if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)
+					$('#titleBar, #navPanel, #page-wrapper')
+						.css('transition', 'none');
 
 	});
-
-	// Banner.
-	(function() {
-
-		// Settings.
-			var settings = {
-
-				// Delay.
-					delay: 9000
-
-			};
-
-		// Vars.
-			var $banner = document.querySelector('#banner'),
-				$images = document.querySelectorAll('#banner li'),
-				pos = 0, lastPos = 0;
-
-		// Main loop.
-			$images[pos].classList.add('visible');
-			$images[pos].classList.add('top');
-
-			// Bail if we only have a single BG.
-				if ($images.length == 1)
-					return;
-
-			window.setInterval(function() {
-
-				lastPos = pos;
-				pos++;
-
-				// Wrap to beginning if necessary.
-					if (pos >= $images.length)
-						pos = 0;
-
-				// Swap top images.
-					$images[lastPos].classList.remove('top');
-					$images[pos].classList.add('visible');
-					$images[pos].classList.add('top');
-
-				// Hide last image after a short delay.
-					window.setTimeout(function() {
-						$images[lastPos].classList.remove('visible');
-					}, settings.delay / 2);
-
-			}, settings.delay);
-
-	})();
 
 })(jQuery);
