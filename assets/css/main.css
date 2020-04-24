@@ -1372,8 +1372,8 @@
 	}
 
 	blockquote {
-		border-left: solid 0.5em #ddd;
-		padding: 1em 0 1em 2em;
+		border-left: solid 0.4em #ddd;
+		padding: 0.5em 0 0.5em 1.5em;
 		font-style: italic;
 	}
 
@@ -1385,6 +1385,10 @@
 		margin: 0;
 		padding: 0;
 		list-style: none;
+	}
+
+	ul.bullets {
+		list-style: initial;
 	}
 
 	header {
@@ -1703,7 +1707,7 @@
 		text-align: center;
 		font-size: 1em;
 		font-weight: 900;
-		color: #fff;
+		color: #000;
 		cursor: pointer;
 	}
 
