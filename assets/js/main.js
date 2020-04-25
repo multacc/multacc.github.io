@@ -1,9 +1,3 @@
-/*
-	Threshold by Pixelarity
-	pixelarity.com | hello@pixelarity.com
-	License: pixelarity.com/license
-*/
-
 (function($) {
 
 	skel.breakpoints({
@@ -66,7 +60,7 @@
 						side: 'left',
 						target: $body,
 						visibleClass: 'navPanel-visible'
-					});
+					});		
 
 			// Fix: Remove transitions on WP<10 (poor/buggy performance).
 				if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)

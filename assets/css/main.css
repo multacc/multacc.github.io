@@ -3,7 +3,7 @@
 @import url("font-awesome.min.css");
 
 :root {
-	--phone-img-width: 340px;
+	--phone-img-width: 345px;
 	--header-logo-size: 50px;
 	--multacc-green: #1EB980;
 }
@@ -1923,7 +1923,7 @@
 			display: block;
 			position: relative;
 			width: 100%;
-			height: calc(1.95 * var(--phone-img-width))
+			height: calc(1.9 * var(--phone-img-width))
 		}
 
 		.image.phone .inner, .image.phone:before, .image.phone:after {
