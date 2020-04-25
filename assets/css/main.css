@@ -3,7 +3,7 @@
 @import url("font-awesome.min.css");
 
 :root {
-	--phone-img-width: 345px;
+	--phone-img-width: 320px;
 	--header-logo-size: 50px;
 	--multacc-green: #1EB980;
 }
@@ -1914,7 +1914,7 @@
 	.image.phone {
 		box-shadow: none;
 		border-radius: 0;
-		margin: 0 0 3em 0;
+		margin: 0 auto;
 		width: var(--phone-img-width);
 	}
 
@@ -2334,6 +2334,10 @@
 		padding: 26px 8px 0px 8px;
 		background: url(images/phone.png) no-repeat center bottom;
 		background-size: auto 100%;
+	}
+
+	.center {
+		display: block;
 	}
 
 /* Normal */
